@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ['./src/index.js'],
+    entry: ['./src/index.jsx'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -10,15 +10,18 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.scss','.png','.jpg']
     },
 
     module: {
         rules: [
             {
-                test:  /\.(js|jsx)$/,
+                test:  /(\.js$|\.jsx$)/,
                 loader: 'babel-loader',
-                exclude: /(node_modules)/,
+                exclude: /(node_modules)/,options: {
+                    presets: ['@babel/preset-env', '@babel/react']
+                }
+
             },
             {
                 test: /\.(html)$/,
