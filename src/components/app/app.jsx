@@ -1,11 +1,11 @@
 import React from 'react';
-import './app.scss';
+import {Header} from '../header/header';
 
 export class App extends React.Component {
     render() {
         return (
             <div className='container'>
-                <h1 className='color'>MMMMMMMMM</h1>
+                <Header />
             </div>
         )
     }
